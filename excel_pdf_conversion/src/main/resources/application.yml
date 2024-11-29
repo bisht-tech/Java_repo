@@ -1,0 +1,21 @@
+
+server:
+  port: 4041
+spring:
+  application:
+    name: excel_pdf_conversion
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: root
+    url: jdbc:mysql://localhost:3306/excel_pdf_conversion_db
+    username: root
+
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+    show-sql: true
