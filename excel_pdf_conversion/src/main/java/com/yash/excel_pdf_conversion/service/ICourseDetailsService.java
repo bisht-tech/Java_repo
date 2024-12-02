@@ -16,6 +16,6 @@ public interface ICourseDetailsService {
     public Set<String> showAllCourseMode();
     public Set<String> showAllFaculties();
     public List<SearchResults> showCoursesByFilters(SearchInputs inputs);
-    public void generatePdfReport(SearchInputs inputs, HttpServletResponse res) throws IOException;
+//    public void generatePdfReport(SearchInputs inputs, HttpServletResponse res) throws IOException;
     public void generateExcelReport(SearchInputs inputs, HttpServletResponse res) throws IOException;
 }

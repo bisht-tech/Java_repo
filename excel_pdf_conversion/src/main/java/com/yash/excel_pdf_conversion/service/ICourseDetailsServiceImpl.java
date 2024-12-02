@@ -30,7 +30,6 @@ import static com.microsoft.schemas.vml.STStrokeJoinStyle.Enum.table;
 
 @Service
 public class ICourseDetailsServiceImpl implements ICourseDetailsService {
-    @Autowired
     private ICourseDetailsRepository courseDetailsRepo;
 
     @Override
@@ -40,7 +39,7 @@ public class ICourseDetailsServiceImpl implements ICourseDetailsService {
 
     @Override
     public Set<String> showAllCourseMode() {
-        return courseDetailsRepo.getDistinctTrainingModes();
+        return courseDetailsRepo.getDistinctCourseModes();
     }
 
     @Override
@@ -79,8 +78,8 @@ public class ICourseDetailsServiceImpl implements ICourseDetailsService {
         return listSearchEntities;
     }
 
-    @Override
-   public void generatePdfReport(SearchInputs inputs, HttpServletResponse res) throws IOException {
+//    @Override
+//   public void generatePdfReport(SearchInputs inputs, HttpServletResponse res) throws IOException {
 //        List<SearchResults> listResults = showCoursesByFilters(inputs);
 //        Document document =new Document(PageSize.A4);
 //        PdfWriter.getInstance(document,res.getOutputStream());
@@ -143,7 +142,7 @@ public class ICourseDetailsServiceImpl implements ICourseDetailsService {
 //
 //
 //
-   }
+//   }
 
     @Override
     public void generateExcelReport(SearchInputs inputs, HttpServletResponse res) throws IOException {

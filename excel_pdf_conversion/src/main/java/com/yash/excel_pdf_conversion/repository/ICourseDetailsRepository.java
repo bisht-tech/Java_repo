@@ -11,6 +11,6 @@ public interface ICourseDetailsRepository extends JpaRepository<CourseDetails,In
     public Set<String> getDistinctCourseCategories();
     @Query("select distinct(facultyName) from CourseDetails")
     public Set<String> getDistinctFacultyNames();
-    @Query("select distinct(trainingMode) from CourseDetails")
-    public Set<String> getDistinctTrainingModes();
+    @Query("select distinct(courseMode) from CourseDetails")
+    public Set<String> getDistinctCourseModes();
 }

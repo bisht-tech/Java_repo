@@ -1,10 +1,13 @@
 package com.yash.excel_pdf_conversion.restcontroller;
 
 import com.yash.excel_pdf_conversion.model.SearchInputs;
+
 import com.yash.excel_pdf_conversion.model.SearchResults;
 import com.yash.excel_pdf_conversion.service.ICourseDetailsService;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.RequiredArgsConstructor;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +21,9 @@ import java.util.Set;
 
 @RestController
 @RequestMapping("/reporting/api")
+@RequiredArgsConstructor
 public class CourseReportController {
+	
     @Autowired
     private ICourseDetailsService courseService;
 
@@ -64,19 +69,19 @@ public class CourseReportController {
         }
     }
 
-    @PostMapping("/pdf-report")
-    public void showPdfReport(@RequestBody SearchInputs inputs, HttpServletResponse res) {
-        try {
-            // Set the response content type
-            res.setContentType("application/pdf");
-            // Set the content-disposition header to response content going to browser as downloadable file
-            res.setHeader("Content-Disposition", "attachment;fileName=courses.pdf");
-            // Use service
-            courseService.generatePdfReport(inputs, res);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+//    @PostMapping("/pdf-report")
+//    public void showPdfReport(@RequestBody SearchInputs inputs, HttpServletResponse res) {
+//        try {
+//            // Set the response content type
+//            res.setContentType("application/pdf");
+//            // Set the content-disposition header to response content going to browser as downloadable file
+//            res.setHeader("Content-Disposition", "attachment;fileName=courses.pdf");
+//            // Use service
+//            courseService.generatePdfReport(inputs, res);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
     @PostMapping("/excel-report")
     public void showExcelReport(@RequestBody SearchInputs inputs, HttpServletResponse res) {
         try {
